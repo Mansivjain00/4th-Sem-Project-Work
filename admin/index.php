@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="../style.css">
 
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
         .admin-image {
             width:60%;
             object-fit: contain;
@@ -22,6 +28,9 @@
             width: 100%;
         }
     </style>
+
+    <!-- font awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 
 </head>
 
@@ -54,18 +63,31 @@
                     <a href="#"><img src="../images/adminprofile.jpg" alt="" class="admin-image"></a>
                 </div>
                 <div class="button text-center">
-                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1">First</a></button>
-                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1">Second</a></button>
-                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1">Third</a></button>
-                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1">Fourth</a></button>
-                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1">Fifth</a></button>
-                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1">Sixth</a></button>
-                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1">Seventh</a></button>
-                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1">Eighth</a></button>
-                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1">Ninth</a></button>
-                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1">Tenth</a></button>
+                    <button class="btn btn-light"><a href="insert_product.php" class="nav-link text-dark my-1 mx-1">Insert Products</a></button>
+                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">View Products</a></button>
+                    <button class="btn btn-light"><a href="index.php?insert_category" class="nav-link text-dark my-1 mx-1">Insert Categories</a></button>
+                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">View Categories</a></button>
+                    <button class="btn btn-light"><a href="index.php?insert_brands" class="nav-link text-dark my-1 mx-1">Insert Brands</a></button>
+                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">View Brands</a></button>
+                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">All Orders</a></button>
+                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">All Payments</a></button>
+                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">Users</a></button>
+                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">Logout</a></button>
                 </div>
             </div>
+        </div>
+
+        <!-- fourth child -->
+        <div class="container my-5">
+            <?php
+                if(isset($_GET['insert_category'])){
+                    include('insert_categories.php');
+                }
+
+                if(isset($_GET['insert_brands'])){
+                    include('insert_brands.php');
+                }
+            ?>
         </div>
 
         <!-- Footer -->
