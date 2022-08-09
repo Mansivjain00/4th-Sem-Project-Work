@@ -1,7 +1,7 @@
 <!-- Connecting database -->
 <?php
-include('./includes/connect.php');
-include('functions/common_function.php');
+    include('./includes/connect.php');
+    include('functions/common_function.php');
 ?>
 
 <!doctype html>
@@ -19,11 +19,11 @@ include('functions/common_function.php');
     <!-- CSS file -->
     <link rel="stylesheet" href="style.css">
     <style>
-        * {
+        *{
             overflow-x: hidden;
         }
 
-        #main {
+        #main{
             overflow: hidden;
         }
     </style>
@@ -58,9 +58,9 @@ include('functions/common_function.php');
                             <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search" action="index.php" method="get">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
-                        <input type="submit" value="Search" class="btn btn-outline-light p-1" name="search_data_product">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <input type="submit" value="Search" class="btn btn-outline-light p-1">
                     </form>
                 </div>
             </div>
@@ -90,20 +90,17 @@ include('functions/common_function.php');
                 <div class="row">
 
 
-                    <!-- Fetching Products -->
-                    <?php
-                    if (isset($_GET['search_data_product'])) {
-                        search_product();
-                    } else {
-                        get_products();
-                    }
+                <!-- Fetching Products -->
+                <?php
+
+                    get_all_products();
                     get_unique_categories();
                     get_unique_brands();
 
-                    ?>
+                ?>
 
 
-
+                    
                 </div>
             </div>
             <div class="col-md-2 bg-secondary p-0">
@@ -111,25 +108,21 @@ include('functions/common_function.php');
                 <!-- brands -->
                 <ul class="navbar-nav me-auto text-center text-light">
                     <li class="nav-item">
-                        <a href="#" class="nav-link ">
-                            <h5>Delivery Brands</h5>
-                        </a>
+                        <a href="#" class="nav-link "><h5>Delivery Brands</h5></a>
                     </li>
 
                     <?php
-                    get_brands();
+                        get_brands();
                     ?>
                 </ul>
                 <!-- categories -->
                 <ul class="navbar-nav me-auto text-center text-light">
                     <li class="nav-item">
-                        <a href="#" class="nav-link ">
-                            <h5>Categories</h5>
-                        </a>
+                        <a href="#" class="nav-link "><h5>Categories</h5></a>
                     </li>
 
                     <?php
-                    get_categories();
+                        get_categories();
                     ?>
                 </ul>
             </div>
