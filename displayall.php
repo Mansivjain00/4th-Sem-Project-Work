@@ -1,7 +1,7 @@
 <!-- Connecting database -->
 <?php
-    include('./includes/connect.php');
-    include('functions/common_function.php');
+include('./includes/connect.php');
+include('functions/common_function.php');
 ?>
 
 <!doctype html>
@@ -19,11 +19,11 @@
     <!-- CSS file -->
     <link rel="stylesheet" href="style.css">
     <style>
-        *{
+        * {
             overflow-x: hidden;
         }
 
-        #main{
+        #main {
             overflow: hidden;
         }
     </style>
@@ -55,16 +55,26 @@
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
+                            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php
+                                count_of_items_in_cart();
+                            ?></sup></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Total: &#8377;<?php
+                            total_cart_price();
+                            ?></a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <input type="submit" value="Search" class="btn btn-outline-light p-1">
+                    <form class="d-flex" role="search" action="index.php" method="get">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
+                        <input type="submit" value="Search" class="btn btn-outline-light p-1" name="search_data_product">
                     </form>
                 </div>
             </div>
         </nav>
+        <?php
+            cart();
+        ?>
         <!-- Second child -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <ul class="navbar-nav me-auto">
@@ -90,17 +100,20 @@
                 <div class="row">
 
 
-                <!-- Fetching Products -->
-                <?php
-
-                    get_all_products();
+                    <!-- Fetching Products -->
+                    <?php
+                    if (isset($_GET['search_data_product'])) {
+                        search_product();
+                    } else {
+                        get_all_products();
+                    }
                     get_unique_categories();
                     get_unique_brands();
 
-                ?>
+                    ?>
 
 
-                    
+
                 </div>
             </div>
             <div class="col-md-2 bg-secondary p-0">
@@ -108,21 +121,25 @@
                 <!-- brands -->
                 <ul class="navbar-nav me-auto text-center text-light">
                     <li class="nav-item">
-                        <a href="#" class="nav-link "><h5>Delivery Brands</h5></a>
+                        <a href="#" class="nav-link ">
+                            <h5>Delivery Brands</h5>
+                        </a>
                     </li>
 
                     <?php
-                        get_brands();
+                    get_brands();
                     ?>
                 </ul>
                 <!-- categories -->
                 <ul class="navbar-nav me-auto text-center text-light">
                     <li class="nav-item">
-                        <a href="#" class="nav-link "><h5>Categories</h5></a>
+                        <a href="#" class="nav-link ">
+                            <h5>Categories</h5>
+                        </a>
                     </li>
 
                     <?php
-                        get_categories();
+                    get_categories();
                     ?>
                 </ul>
             </div>
