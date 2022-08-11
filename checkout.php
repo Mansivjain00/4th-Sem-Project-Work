@@ -10,7 +10,7 @@ include('functions/common_function.php');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Spree</title>
+    <title>Spree: Checkout Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
     <!-- Font awesome -->
@@ -54,16 +54,6 @@ include('functions/common_function.php');
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php
-                                count_of_items_in_cart();
-                            ?></sup></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Total: &#8377;<?php
-                            total_cart_price();
-                            ?></a>
-                        </li>
                     </ul>
                     <form class="d-flex" role="search" action="index.php" method="get">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
@@ -98,53 +88,17 @@ include('functions/common_function.php');
 
         <!-- Fourth Child -->
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <!-- Products -->
                 <div class="row">
-
-
-                    <!-- Fetching Products -->
                     <?php
-                    if (isset($_GET['search_data_product'])) {
-                        search_product();
-                    } else {
-                        get_all_products();
-                    }
-                    get_unique_categories();
-                    get_unique_brands();
-
+                        if(!isset($_SESSION['username'])){
+                            include('./users/user_login.php');
+                        }else{
+                            include('payment.php');
+                        }
                     ?>
-
-
-
                 </div>
-            </div>
-            <div class="col-md-2 bg-secondary p-0">
-                <!-- sidenav -->
-                <!-- brands -->
-                <ul class="navbar-nav me-auto text-center text-light">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link ">
-                            <h5>Delivery Brands</h5>
-                        </a>
-                    </li>
-
-                    <?php
-                    get_brands();
-                    ?>
-                </ul>
-                <!-- categories -->
-                <ul class="navbar-nav me-auto text-center text-light">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link ">
-                            <h5>Categories</h5>
-                        </a>
-                    </li>
-
-                    <?php
-                    get_categories();
-                    ?>
-                </ul>
             </div>
         </div>
 

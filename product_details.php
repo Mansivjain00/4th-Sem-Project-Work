@@ -197,6 +197,9 @@ include('functions/common_function.php');
                 <li class="nav-item">
                     <a class="nav-link" href="#">Login</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign In</a>
+                </li>
             </ul>
         </nav>
 

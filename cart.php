@@ -27,7 +27,7 @@ include('functions/common_function.php');
             overflow: hidden;
         }
 
-        .cart_img{
+        .cart_img {
             width: 25%;
             height: 25%;
             object-fit: contain;
@@ -81,6 +81,9 @@ include('functions/common_function.php');
                 <li class="nav-item">
                     <a class="nav-link" href="#">Login</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign In</a>
+                </li>
             </ul>
         </nav>
 
@@ -93,66 +96,97 @@ include('functions/common_function.php');
         <!-- Fourth Child -->
         <div class="container">
             <div class="row table-responsive">
-                <table class="table table-bordered text-center table-striped">
-                    <thead>
-                        <th>Product Title</th>
-                        <th>Product Image</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Remove</th>
-                        <th colspan="2">Operations</th>
-                    </thead>
-                    <tbody>
-                        <!-- Php code for dynamic data -->
-                        <?php
+                <form action="" method="post">
+                    <table class="table table-bordered text-center table-striped">
+                        
+                            <!-- Php code for dynamic data -->
+                            <?php
                             global $con;
                             $ip = getIPAddress();
-                            $total=0;
+                            $total = 0;
                             $select_query = "Select * from `cart_details` where ip_address='$ip'";
                             $result = mysqli_query($con, $select_query);
-                    
-                            while($row=mysqli_fetch_array($result)){
-                                $product_id=$row['product_id'];
-                                $price_query="Select * from `products` where product_id='$product_id'";
-                                $result_products = mysqli_query($con, $price_query);
-                                while($row_product_price=mysqli_fetch_array($result_products)){
-                                    $product_price=array($row_product_price['price']);
-                                    $product_table=$row_product_price['price'];
-                                    $product_title=$row_product_price['product_title'];
-                                    $product_image=$row_product_price['product_image'];
-                                    $price=array_sum($product_price);
-                                    $total+=$price;
-                                    echo "<tr>
-                            <td style='width:20%'>$product_title</td>
-                            <td style='width:20%'><img src='./admin/product_images/$product_image' alt='' class='cart_img'></td>
-                            <td style='width:20%'><input type='text' class='form-input' style='background-color: transparent;width:25%;text-align:center'></td>
+
+                            $result_count = mysqli_num_rows($result);
+                            if ($result_count > 0) {
+
+                                echo "<thead>
+                                <th>Product Title</th>
+                                <th>Product Image</th>
+                                <th>Price</th>
+                                <th>Remove</th>
+                                <th colspan='2'>Operations</th>
+                            </thead>
+                            <tbody>";
+
+                                while ($row = mysqli_fetch_array($result)) {
+                                    $product_id = $row['product_id'];
+                                    $price_query = "Select * from `products` where product_id='$product_id'";
+                                    $result_products = mysqli_query($con, $price_query);
+                                    while ($row_product_price = mysqli_fetch_array($result_products)) {
+                                        $product_price = array($row_product_price['price']);
+                                        $product_table = $row_product_price['price'];
+                                        $product_title = $row_product_price['product_title'];
+                                        $product_image = $row_product_price['product_image'];
+                                        $price = array_sum($product_price);
+                                        $total += $price;
+                                        echo "<tr>
+                            <td style='width:30%'>$product_title</td>
+                            <td style='width:30%'><img src='./admin/product_images/$product_image' alt='' class='cart_img'></td>
                             <td>&#8377;$product_table</td>
-                            <td><input type='checkbox'></td>
+                            <td><input type='checkbox' name='removeitem[]' value=$product_id></td>
                             <td class='m-auto'>
-                                <button class='btn btn-secondary mx-1'>Update</button>
-                                <button class='btn btn-secondary mx-1'>Remove</button>
+                                <input type='submit' value='Remove' name='remove_cart' class='btn btn-secondary mx-1'>
                             </td>
                         </tr>";
+                                    }
+                                }
+                                echo "</tbody></table>
+                                <!-- subtotal -->
+                                <div class='d-flex my-4'>
+                                    <h5 class='p-2 my-2'>Subtotal:&#8377;$total</h5>
+                                    <a href='index.php' class='btn btn-secondary p-2 border-0 mx-3 my-2'> Continue Shopping..</a>
+                                    <a href='checkout.php' class='btn btn-secondary p-2 border-0 my-2'>Checkout</a>
+                                </div>";
                             }
-                        }
-                        ?>
+                            else{
+                                echo "<div class='d-flex my-4'>
+                                <h3 class='p-2 my-2'>Cart is Empty!</h3>
+                                <a href='index.php' class='btn btn-secondary p-2 border-0 mx-3 my-2'> Continue Shopping..</a>";
+                            }
+                            ?>
+
                         
-                    </tbody>
-                </table>
-                <!-- subtotal -->
-                <div class="d-flex my-4">
-                    <h5 class="p-2">Subtotal:&#8377;<?php
-                        total_cart_price();
-                    ?></h5>
-                    <a href="index.php"><button class="btn btn-secondary p-2 border-0 mx-3"> Continue Shopping..</button></a>
-                    <a href="#"><button class="btn btn-secondary p-2 border-0 "> Checkout</button></a>
-                </div>
+                    
             </div>
         </div>
+        </form>
+
+        <!-- function to remove item -->
+
+        <?php
+        function remove_cart_item()
+        {
+            global $con;
+            if (isset($_POST['remove_cart'])) {
+                foreach ($_POST['removeitem'] as $remove_id) {
+                    echo $remove_id;
+                    $delete_query = "delete from `cart_details` where product_id=$remove_id";
+                    $run_delete = mysqli_query($con, $delete_query);
+                    if ($run_delete) {
+                        echo "<script>window.open('cart.php','_self')</script>";
+                    }
+                }
+            }
+        }
+
+        echo $remove_item = remove_cart_item();
+        ?>
+
 
         <!-- include footer -->
         <?php
-        include('./includes/footer.php');
+            include('./includes/footer.php');
         ?>
     </div>
 
