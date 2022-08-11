@@ -56,13 +56,13 @@ include('functions/common_function.php');
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php
-                                count_of_items_in_cart();
-                            ?></sup></a>
+                                                                                                                count_of_items_in_cart();
+                                                                                                                ?></sup></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Total: &#8377;<?php
-                            total_cart_price();
-                            ?></a>
+                                                                        total_cart_price();
+                                                                        ?></a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search" action="index.php" method="get">
@@ -73,7 +73,7 @@ include('functions/common_function.php');
             </div>
         </nav>
         <?php
-            cart();
+        cart();
         ?>
         <!-- Second child -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -83,6 +83,9 @@ include('functions/common_function.php');
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign In</a>
                 </li>
             </ul>
         </nav>
@@ -109,7 +112,6 @@ include('functions/common_function.php');
                     }
                     get_unique_categories();
                     get_unique_brands();
-                    total_cart_price()
                     ?>
 
 
