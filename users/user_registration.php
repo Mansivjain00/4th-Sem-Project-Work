@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spree: User Login</title>
+    <title>Spree: User Registration</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
@@ -15,10 +14,9 @@
     <!-- CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    
+
     <!-- Navbar -->
     <div class="container-fluid p-0">
         <!-- First Child -->
@@ -60,7 +58,7 @@
                     <a class="nav-link" href="user_login.php">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="user_registration.php">Sign In</a>
+                    <a class="nav-link" href="#">Sign In</a>
                 </li>
             </ul>
         </nav>
@@ -73,7 +71,7 @@
         </div>
 
     <div class="container-fluid my-3">
-        <h3 class="text-center">User Login</h3>
+        <h3 class="text-center">New User Registration</h3>
         <div class="row d-flex align-items-center justify-content-center">
             <div class="lg-12 col-xl-6">
                 <form action="" method="post" enctype="multipart/form-data">
@@ -82,12 +80,32 @@
                         <input type="text" id="user_username" class="form-control" placeholder="Enter Your Username" autocomplete="off" required="required" name="user_username">
                     </div>
                     <div class="form-outline my-2">
+                        <label for="user_email" class="form-label">Email</label>
+                        <input type="email" id="user_email" class="form-control" placeholder="Enter Your Email" autocomplete="off" required="required" name="user_email">
+                    </div>
+                    <div class="form-outline my-2">
+                        <label for="user_image" class="form-label">Profile Picture</label>
+                        <input type="file" id="user_image" class="form-control" placeholder="" autocomplete="off" required="required" name="user_image">
+                    </div>
+                    <div class="form-outline my-2">
                         <label for="user_password" class="form-label">Password</label>
                         <input type="password" id="user_password" class="form-control" placeholder="Enter Your Password" autocomplete="off" required="required" name="user_password">
                     </div>
+                    <div class="form-outline my-2">
+                        <label for="confirm_user_password" class="form-label">Confirm Password</label>
+                        <input type="password" id="confirm_user_password" class="form-control" placeholder="Confirm Your Password" autocomplete="off" required="required" name="confirm_user_password">
+                    </div>
+                    <div class="form-outline my-2">
+                        <label for="user_address" class="form-label">Address</label>
+                        <input type="text" id="user_address" class="form-control" placeholder="Enter Your Address" autocomplete="off" required="required" name="user_address">
+                    </div>
+                    <div class="form-outline my-2">
+                        <label for="user_contact" class="form-label">Contact</label>
+                        <input type="text" id="user_contact" class="form-control" placeholder="Enter Your Contact" autocomplete="off" required="required" name="user_contact">
+                    </div>
                     <div class="text-center my-2">
-                        <input type="submit" value='Login' class="btn btn-secondary p-2 border-0 my-1">
-                        <p class="small m-2 p-1 ">Dont have an account? <a href="user_registration.php" class="text-decoration-none">Register</a> </p>
+                        <input type="submit" value='Register' class="btn btn-secondary p-2 border-0 my-1">
+                        <p class="small m-2 p-1 ">Already have an account? <a href="user_login.php" class="text-decoration-none">Login</a> </p>
                     </div>
                 </form>
             </div>
@@ -99,5 +117,4 @@
     ?>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-
 </html>

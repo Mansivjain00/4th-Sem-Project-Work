@@ -79,10 +79,10 @@ include('functions/common_function.php');
                     <a class="nav-link" href="#">Welcome Guest</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="./users/user_login.php">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sign In</a>
+                    <a class="nav-link" href="./users/user_registration.php">Sign In</a>
                 </li>
             </ul>
         </nav>
@@ -146,7 +146,7 @@ include('functions/common_function.php');
                                 <div class='d-flex my-4'>
                                     <h5 class='p-2 my-2'>Subtotal:&#8377;$total</h5>
                                     <a href='index.php' class='btn btn-secondary p-2 border-0 mx-3 my-2'> Continue Shopping..</a>
-                                    <a href='checkout.php' class='btn btn-secondary p-2 border-0 my-2'>Checkout</a>
+                                    <a href='./users/checkout.php' class='btn btn-secondary p-2 border-0 my-2'>Checkout</a>
                                 </div>";
                             }
                             else{
