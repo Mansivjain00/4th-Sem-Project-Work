@@ -6,4 +6,7 @@
     if(!$con){
         die(mysqli_error($conn));
     }
+    // else{
+    //     echo "connected";
+    // }
 ?>

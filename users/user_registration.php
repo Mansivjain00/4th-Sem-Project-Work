@@ -1,3 +1,8 @@
+<?php
+    include('../includes/connect.php');
+    include('../functions/common_function.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,7 +109,7 @@
                         <input type="text" id="user_contact" class="form-control" placeholder="Enter Your Contact" autocomplete="off" required="required" name="user_contact">
                     </div>
                     <div class="text-center my-2">
-                        <input type="submit" value='Register' class="btn btn-secondary p-2 border-0 my-1">
+                        <input type="submit" value='Register' class="btn btn-secondary p-2 border-0 my-1" name="user_register">
                         <p class="small m-2 p-1 ">Already have an account? <a href="user_login.php" class="text-decoration-none">Login</a> </p>
                     </div>
                 </form>
@@ -118,3 +123,30 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </html>
+
+
+<!-- PHP Code -->
+<?php
+    if(isset($_POST['user_register'])){
+        $user_username=$_POST['user_username'];
+        $user_email=$_POST['user_email'];
+        $user_image=$_FILES['user_image']['name'];
+        $user_image_temp=$_FILES['user_image']['tmp_name'];
+        $user_password=$_POST['user_password'];
+        $confirm_user_password=$_POST['confirm_user_password'];
+        $user_address=$_POST['user_address'];
+        $user_contact=$_POST['user_contact'];
+
+        $user_ip=getIPAddress();
+
+        move_uploaded_file($user_image_temp,"./user_images/$user_image");
+        $insert_query="insert into `user_table`(username,user_email,user_password,user_image,user_ip,user_address,user_mobile) values('$user_username','$user_email','$user_password','$user_image','$user_ip','$user_address','$user_contact')";
+        $insert_result=mysqli_query($con,$insert_query);
+
+        if($insert_result){
+            echo "<script>alert('User Registered Successfully')</script>";
+        }else{
+            echo "<script>alert('couldnt register user')</script>";
+        }
+    }
+?>
