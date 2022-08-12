@@ -1,6 +1,7 @@
 <!-- Connecting database -->
 <?php
     include('../includes/connect.php');
+    session_start();
 ?>
 
 <!doctype html>
@@ -45,11 +46,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- include footer -->
-        <?php
-        include('../includes/footer.php');
-        ?>
     </div>
 
 
