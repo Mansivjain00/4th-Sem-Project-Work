@@ -64,15 +64,15 @@
                 </div>
                 <div class="button text-center">
                     <button class="btn btn-light"><a href="insert_product.php" class="nav-link text-dark my-1 mx-1">Insert Products</a></button>
-                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">View Products</a></button>
+                    <!-- <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">View Products</a></button> -->
                     <button class="btn btn-light"><a href="index.php?insert_category" class="nav-link text-dark my-1 mx-1">Insert Categories</a></button>
-                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">View Categories</a></button>
+                    <!-- <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">View Categories</a></button> -->
                     <button class="btn btn-light"><a href="index.php?insert_brands" class="nav-link text-dark my-1 mx-1">Insert Brands</a></button>
-                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">View Brands</a></button>
-                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">All Orders</a></button>
-                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">All Payments</a></button>
-                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">Users</a></button>
-                    <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">Logout</a></button>
+                    <!-- <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">View Brands</a></button> -->
+                    <!-- <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">All Orders</a></button> -->
+                    <!-- <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">All Payments</a></button> -->
+                    <!-- <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">Users</a></button> -->
+                    <!-- <button class="btn btn-light"><a href="" class="nav-link text-dark my-1 mx-1">Logout</a></button> -->
                 </div>
             </div>
         </div>
