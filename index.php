@@ -84,6 +84,9 @@ session_start();
                         <a class='nav-link' href='#'>Welcome ".$_SESSION['username']."</a>
                     </li>
                     <li class='nav-item'>
+                        <a class='nav-link' href='./users/profile.php'>My Account</a>
+                    </li>
+                    <li class='nav-item'>
                         <a class='nav-link' href='./users/logout.php'>Logout</a>
                     </li>";
                     }else{
@@ -135,7 +138,7 @@ session_start();
                 <ul class="navbar-nav me-auto text-center text-light">
                     <li class="nav-item">
                         <a href="#" class="nav-link ">
-                            <h5>Delivery Brands</h5>
+                            <h5 class="overflow-hidden">Delivery Brands</h5>
                         </a>
                     </li>
 
@@ -147,7 +150,7 @@ session_start();
                 <ul class="navbar-nav me-auto text-center text-light">
                     <li class="nav-item">
                         <a href="#" class="nav-link ">
-                            <h5>Categories</h5>
+                            <h5 class="overflow-hidden">Categories</h5>
                         </a>
                     </li>
 

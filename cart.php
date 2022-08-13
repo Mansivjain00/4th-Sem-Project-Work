@@ -18,7 +18,7 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 
     <!-- CSS file -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <style>
         * {
             overflow-x: hidden;
@@ -78,6 +78,9 @@ session_start();
                     if(isset($_SESSION['username'])){
                         echo "<li class='nav-item'>
                         <a class='nav-link' href='#'>Welcome ".$_SESSION['username']."</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='./users/profile.php'>My Account</a>
                     </li>
                     <li class='nav-item'>
                         <a class='nav-link' href='./users/logout.php'>Logout</a>

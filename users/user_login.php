@@ -47,7 +47,7 @@
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search" action="index.php" method="get">
+                    <form class="d-flex" role="search" action="../index.php" method="get">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
                         <input type="submit" value="Search" class="btn btn-outline-light p-1" name="search_data_product">
                     </form>
@@ -61,6 +61,9 @@
                     if(isset($_SESSION['username'])){
                         echo "<li class='nav-item'>
                         <a class='nav-link' href='#'>Welcome ".$_SESSION['username']."</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='profile.php'>My Account</a>
                     </li>
                     <li class='nav-item'>
                         <a class='nav-link' href='logout.php'>Logout</a>
