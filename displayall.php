@@ -11,7 +11,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Spree</title>
+    <title>Spree: Products</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
     <!-- Font awesome -->
@@ -83,6 +83,9 @@ session_start();
                         <a class='nav-link' href='#'>Welcome ".$_SESSION['username']."</a>
                     </li>
                     <li class='nav-item'>
+                        <a class='nav-link' href='./users/profile.php'>My Account</a>
+                    </li>
+                    <li class='nav-item'>
                         <a class='nav-link' href='./users/logout.php'>Logout</a>
                     </li>";
                     }else{
@@ -135,7 +138,7 @@ session_start();
                 <ul class="navbar-nav me-auto text-center text-light">
                     <li class="nav-item">
                         <a href="#" class="nav-link ">
-                            <h5>Delivery Brands</h5>
+                            <h5 class="overflow-hidden">Delivery Brands</h5>
                         </a>
                     </li>
 
@@ -147,7 +150,7 @@ session_start();
                 <ul class="navbar-nav me-auto text-center text-light">
                     <li class="nav-item">
                         <a href="#" class="nav-link ">
-                            <h5>Categories</h5>
+                            <h5 class="overflow-hidden">Categories</h5>
                         </a>
                     </li>
 
