@@ -50,7 +50,7 @@
             <input type="email" name="user_email" id="" class="form-control w-50 m-auto text-center" value="<?php echo $user_email?>">
         </div>
         <div class="form-outline my-3 d-flex">
-            <input type="file" name="user_image" id="" class="form-control w-50 m-auto text-center" >
+            <input type="file" name="user_image" id="" class="form-control w-50 m-auto text-center" value="<?php echo $user_img?>">
         </div>
         <div class="form-outline my-3">
             <input type="text" name="user_address" id="" class="form-control w-50 m-auto text-center" value="<?php echo $user_address?>" >

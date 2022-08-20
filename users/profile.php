@@ -69,7 +69,7 @@
                     </ul>
                     <form class="d-flex" role="search" action="../index.php" method="get">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
-                        <input type="submit" value="Search" class="btn btn-outline-light p-1" name="search_data_product">
+                        <input type="submit" value="Search" class="btn btn-outline-light w-50" name="search_data_product">
                     </form>
                 </div>
             </div>
@@ -127,7 +127,7 @@
                             $row_image=mysqli_fetch_array($result_image);
                             $image=$row_image['user_image'];
                             echo "<li class='nav-item bg-secondary text-light'>
-                            <img src='./user_images/$image' alt='' class='profile_img'>
+                            <img src='./user_images/$image' alt='' class='profile_img  z-depth-2'>
                         </li>";
                         ?>
                         
