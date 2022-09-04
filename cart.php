@@ -36,10 +36,10 @@ session_start();
     </style>
 </head>
 
-<body>
+<body class="vh-100">
 
     <!-- Navbar -->
-    <div class="container-fluid p-0">
+    <div class="container-fluid p-0 vh-100">
         <!-- First Child -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
@@ -55,7 +55,7 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link" href="displayall.php">Products</a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
@@ -75,9 +75,9 @@ session_start();
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <ul class="navbar-nav me-auto">
                 <?php
-                    if(isset($_SESSION['username'])){
-                        echo "<li class='nav-item'>
-                        <a class='nav-link' href='#'>Welcome ".$_SESSION['username']."</a>
+                if (isset($_SESSION['username'])) {
+                    echo "<li class='nav-item'>
+                        <a class='nav-link' href='#'>Welcome " . $_SESSION['username'] . "</a>
                     </li>
                     <li class='nav-item'>
                         <a class='nav-link' href='./users/profile.php'>My Account</a>
@@ -85,8 +85,8 @@ session_start();
                     <li class='nav-item'>
                         <a class='nav-link' href='./users/logout.php'>Logout</a>
                     </li>";
-                    }else{
-                        echo "<li class='nav-item'>
+                } else {
+                    echo "<li class='nav-item'>
                         <a class='nav-link' href='#'>Welcome Guest</a>
                     </li>
                     <li class='nav-item'>
@@ -95,7 +95,7 @@ session_start();
                     <li class='nav-item'>
                         <a class='nav-link' href='./users/user_registration.php'>Sign In</a>
                     </li>";
-                    }
+                }
                 ?>
             </ul>
         </nav>
@@ -107,23 +107,23 @@ session_start();
         </div>
 
         <!-- Fourth Child -->
-        <div class="container">
-            <div class="row table-responsive">
-                <form action="" method="post">
+        <div class="container-fluid p-0 vh-100">
+            <div class="row table-responsive ">
+                <form action="" method="post" class="">
                     <table class="table table-bordered text-center table-striped">
-                        
-                            <!-- Php code for dynamic data -->
-                            <?php
-                            global $con;
-                            $ip = getIPAddress();
-                            $total = 0;
-                            $select_query = "Select * from `cart_details` where ip_address='$ip'";
-                            $result = mysqli_query($con, $select_query);
 
-                            $result_count = mysqli_num_rows($result);
-                            if ($result_count > 0) {
+                        <!-- Php code for dynamic data -->
+                        <?php
+                        global $con;
+                        $ip = getIPAddress();
+                        $total = 0;
+                        $select_query = "Select * from `cart_details` where ip_address='$ip'";
+                        $result = mysqli_query($con, $select_query);
 
-                                echo "<thead>
+                        $result_count = mysqli_num_rows($result);
+                        if ($result_count > 0) {
+
+                            echo "<thead>
                                 <th>Product Title</th>
                                 <th>Product Image</th>
                                 <th>Price</th>
@@ -132,18 +132,18 @@ session_start();
                             </thead>
                             <tbody>";
 
-                                while ($row = mysqli_fetch_array($result)) {
-                                    $product_id = $row['product_id'];
-                                    $price_query = "Select * from `products` where product_id='$product_id'";
-                                    $result_products = mysqli_query($con, $price_query);
-                                    while ($row_product_price = mysqli_fetch_array($result_products)) {
-                                        $product_price = array($row_product_price['price']);
-                                        $product_table = $row_product_price['price'];
-                                        $product_title = $row_product_price['product_title'];
-                                        $product_image = $row_product_price['product_image'];
-                                        $price = array_sum($product_price);
-                                        $total += $price;
-                                        echo "<tr>
+                            while ($row = mysqli_fetch_array($result)) {
+                                $product_id = $row['product_id'];
+                                $price_query = "Select * from `products` where product_id='$product_id'";
+                                $result_products = mysqli_query($con, $price_query);
+                                while ($row_product_price = mysqli_fetch_array($result_products)) {
+                                    $product_price = array($row_product_price['price']);
+                                    $product_table = $row_product_price['price'];
+                                    $product_title = $row_product_price['product_title'];
+                                    $product_image = $row_product_price['product_image'];
+                                    $price = array_sum($product_price);
+                                    $total += $price;
+                                    echo "<tr>
                             <td style='width:30%'>$product_title</td>
                             <td style='width:30%'><img src='./admin/product_images/$product_image' alt='' class='cart_img'></td>
                             <td>&#8377;$product_table</td>
@@ -152,25 +152,24 @@ session_start();
                                 <input type='submit' value='Remove' name='remove_cart' class='btn btn-secondary mx-1'>
                             </td>
                         </tr>";
-                                    }
                                 }
-                                echo "</tbody></table>
+                            }
+                            echo "</tbody></table>
                                 <!-- subtotal -->
                                 <div class='d-flex my-4'>
                                     <h5 class='p-2 my-2'>Subtotal:&#8377;$total</h5>
                                     <a href='index.php' class='btn btn-secondary p-2 border-0 mx-3 my-2'> Continue Shopping..</a>
                                     <a href='./users/checkout.php' class='btn btn-secondary p-2 border-0 my-2'>Checkout</a>
                                 </div>";
-                            }
-                            else{
-                                echo "<div class='d-flex my-4'>
+                        } else {
+                            echo "<div class='d-flex my-4'>
                                 <h3 class='p-2 my-2'>Cart is Empty!</h3>
                                 <a href='index.php' class='btn btn-secondary p-2 border-0 mx-3 my-2'> Continue Shopping..</a>";
-                            }
-                            ?>
+                        }
+                        ?>
 
-                        
-                    
+
+
             </div>
         </div>
         </form>
@@ -196,16 +195,16 @@ session_start();
         echo $remove_item = remove_cart_item();
         ?>
 
-
-        <!-- include footer -->
-        <?php
-            include('./includes/footer.php');
-        ?>
     </div>
 
+    
 
 
+    
 </body>
+<?php
+    include('./includes/footer.php');
+    ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
 </html>

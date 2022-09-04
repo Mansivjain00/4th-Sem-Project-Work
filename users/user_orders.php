@@ -3,7 +3,7 @@
     <thead>
         <tr>
             <th>Serial number</th>
-            <th>Amount Due</th>
+            <th>Amount</th>
             <th>Total Products</th>
             <th>Invoice number</th>
             <th>Date</th>
@@ -40,7 +40,7 @@
 
                 echo "<tr>
                 <td>$count</td>
-                <td>$amount</td>
+                <td>&#8377;$amount</td>
                 <td>$total_products</td>
                 <td>$invoice_number</td>
                 <td>$order_date</td>

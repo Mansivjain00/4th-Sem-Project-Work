@@ -24,10 +24,13 @@
             $update_query="update `user_table` set username='$username', user_email='$user_email',user_address='$user_address',user_mobile='$user_mobile', user_image='$user_img' where user_id=$update_id";
             $result_update=mysqli_query($con,$update_query);
 
+            echo $user_img;
+
             if($result_update){
                 echo "<script>alert('Data updated successfully')</script>";
                 echo "<script>window.open('logout.php','_self')</script>";
             }
+
         }
     }
 ?>
