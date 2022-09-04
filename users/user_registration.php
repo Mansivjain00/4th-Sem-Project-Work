@@ -47,7 +47,7 @@ session_start();
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="../feedback.php">Contact</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search" action="../index.php" method="get">

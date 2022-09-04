@@ -36,10 +36,10 @@ session_start();
     </style>
 </head>
 
-<body class="vh-100">
+<body>
 
     <!-- Navbar -->
-    <div class="container-fluid p-0 vh-100">
+    <div class="container-fluid p-0 ">
         <!-- First Child -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
@@ -57,7 +57,7 @@ session_start();
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="feedback.php">Contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php
@@ -107,10 +107,10 @@ session_start();
         </div>
 
         <!-- Fourth Child -->
-        <div class="container-fluid p-0 vh-100">
-            <div class="row table-responsive ">
+        <div class="container-fluid p-0">
+            <div class="row table-responsive "style='min-height:55vh;'>
                 <form action="" method="post" class="">
-                    <table class="table table-bordered text-center table-striped">
+                    
 
                         <!-- Php code for dynamic data -->
                         <?php
@@ -123,7 +123,7 @@ session_start();
                         $result_count = mysqli_num_rows($result);
                         if ($result_count > 0) {
 
-                            echo "<thead>
+                            echo "<table class='table table-bordered text-center table-striped'><thead>
                                 <th>Product Title</th>
                                 <th>Product Image</th>
                                 <th>Price</th>
@@ -162,9 +162,9 @@ session_start();
                                     <a href='./users/checkout.php' class='btn btn-secondary p-2 border-0 my-2'>Checkout</a>
                                 </div>";
                         } else {
-                            echo "<div class='d-flex my-4'>
+                            echo "<div class='d-flex my-4 d-flex justify-content-center align-items-center''>
                                 <h3 class='p-2 my-2'>Cart is Empty!</h3>
-                                <a href='index.php' class='btn btn-secondary p-2 border-0 mx-3 my-2'> Continue Shopping..</a>";
+                                <div><a href='index.php' class='btn btn-secondary p-2 border-0 mx-3 my-2'> Continue Shopping..</a></div>";
                         }
                         ?>
 
@@ -198,13 +198,13 @@ session_start();
     </div>
 
     
-
+    <?php
+    include('./includes/footer.php');
+    ?>
 
     
 </body>
-<?php
-    include('./includes/footer.php');
-    ?>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
 </html>

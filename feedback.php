@@ -49,19 +49,19 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link" href="displayall.php">Products</a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link" href="feedback.php">Contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php
-                                count_of_items_in_cart();
-                            ?></sup></a>
+                                                                                                                count_of_items_in_cart();
+                                                                                                                ?></sup></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Total: &#8377;<?php
-                            total_cart_price();
-                            ?></a>
+                                                                        total_cart_price();
+                                                                        ?></a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search" action="index.php" method="get">
@@ -72,15 +72,15 @@ session_start();
             </div>
         </nav>
         <?php
-            cart();
+        cart();
         ?>
         <!-- Second child -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <ul class="navbar-nav me-auto">
                 <?php
-                    if(isset($_SESSION['username'])){
-                        echo "<li class='nav-item'>
-                        <a class='nav-link' href='#'>Welcome ".$_SESSION['username']."</a>
+                if (isset($_SESSION['username'])) {
+                    echo "<li class='nav-item'>
+                        <a class='nav-link' href='#'>Welcome " . $_SESSION['username'] . "</a>
                     </li>
                     <li class='nav-item'>
                         <a class='nav-link' href='./users/profile.php'>My Account</a>
@@ -88,8 +88,8 @@ session_start();
                     <li class='nav-item'>
                         <a class='nav-link' href='./users/logout.php'>Logout</a>
                     </li>";
-                    }else{
-                        echo "<li class='nav-item'>
+                } else {
+                    echo "<li class='nav-item'>
                         <a class='nav-link' href='#'>Welcome Guest</a>
                     </li>
                     <li class='nav-item'>
@@ -98,7 +98,7 @@ session_start();
                     <li class='nav-item'>
                         <a class='nav-link' href='./users/user_registration.php'>Sign In</a>
                     </li>";
-                    }
+                }
                 ?>
             </ul>
         </nav>
@@ -109,56 +109,25 @@ session_start();
             <p class="text-center">Your One Stop Solution!</p>
         </div>
 
-        <!-- Fourth Child -->
-        <div class="row">
-            <div class="col-md-10">
-                <!-- Products -->
-                <div class="row">
+        <div class="container m-auto d-flex justify-content-center card p-3 col-md-6 my-2">
 
-
-                    <!-- Fetching Products -->
-                    <?php
-                    if (isset($_GET['search_data_product'])) {
-                        search_product();
-                    } else {
-                        get_all_products();
-                    }
-                    get_unique_categories();
-                    get_unique_brands();
-
-                    ?>
-
-
-
+            <form class="col-md-12" action="feedback_submission.php" method="POST" name="_next">
+                <h3 class="text-secondary pt-3 title mx-auto overflow-hidden">Contact Form</h3>
+                <div class="form-group my-2">
+                    <label for="exampleFormControlInput1">Name</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Your Name" name="name1">
                 </div>
-            </div>
-            <div class="col-md-2 bg-secondary p-0">
-                <!-- sidenav -->
-                <!-- brands -->
-                <ul class="navbar-nav me-auto text-center text-light">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link ">
-                            <h5 class="overflow-hidden">Delivery Brands</h5>
-                        </a>
-                    </li>
+                <div class="form-group my-2">
+                    <label for="exampleFormControlInput1">Email address</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="Enter Your Email" name="email">
+                </div>
 
-                    <?php
-                    get_brands();
-                    ?>
-                </ul>
-                <!-- categories -->
-                <ul class="navbar-nav me-auto text-center text-light">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link ">
-                            <h5 class="overflow-hidden">Categories</h5>
-                        </a>
-                    </li>
-
-                    <?php
-                    get_categories();
-                    ?>
-                </ul>
-            </div>
+                <div class="form-group my-2">
+                    <label for="exampleFormControlTextarea1">Message</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn btn-secondary" data-target="#exampleModalCenter">Submit</button>
+            </form>
         </div>
 
         <!-- include footer -->

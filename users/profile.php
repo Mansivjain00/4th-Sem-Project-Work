@@ -54,7 +54,7 @@
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="../feedback.php">Contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php
