@@ -11,7 +11,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Spree: Products</title>
+    <title>Spree: Contact</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
     <!-- Font awesome -->
@@ -104,7 +104,7 @@ session_start();
         </nav>
 
         <!-- Third child -->
-        <div class="bg-light my-3" id="main">
+        <div class="bg-light my-2" id="main">
             <h3 class="text-center overflow-hidden">Spree</h3>
             <p class="text-center">Your One Stop Solution!</p>
         </div>
@@ -126,7 +126,7 @@ session_start();
                     <label for="exampleFormControlTextarea1">Message</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="5"></textarea>
                 </div>
-                <button type="submit" class="btn btn-secondary" data-target="#exampleModalCenter">Submit</button>
+                <button type="submit" class="btn btn-secondary my-2" data-target="#exampleModalCenter">Submit</button>
             </form>
         </div>
 
